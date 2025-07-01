@@ -2,9 +2,13 @@
 
 namespace App\Http\Resources\V1;
 
+use App\Models\SpaceMission;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * @mixin SpaceMission
+ */
 class SpaceMissionResource extends JsonResource
 {
     public static $wrap = null; // Prevents wrapping the resource in a "data" key
