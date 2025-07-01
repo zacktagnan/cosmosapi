@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Feature\Middleware;
+namespace Tests\Feature\Middleware\V1;
 
-use App\Http\Middleware\ApiResponseMiddleware;
+use App\Http\Middleware\V1\ApiResponseMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Tests\TestCase;
