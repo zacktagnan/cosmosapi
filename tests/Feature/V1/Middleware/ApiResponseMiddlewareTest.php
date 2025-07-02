@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Middleware\V1;
+namespace Tests\Feature\V1\Middleware;
 
 use App\Http\Middleware\V1\ApiResponseMiddleware;
 use Illuminate\Http\Request;
