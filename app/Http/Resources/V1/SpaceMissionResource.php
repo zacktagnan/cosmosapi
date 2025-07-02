@@ -27,7 +27,7 @@ class SpaceMissionResource extends JsonResource
             'crew_size' => $this->crew_size,
             'mission_type' => $this->mission_type,
             'budget_millions' => number_format($this->budget_millions, 2),
-            'budget_millions_formatted' => '$' . number_format($this->budget_millions / 1000000, 1) . 'M',
+            'budget_millions_formatted' => '$' . number_format($this->budget_millions, 1) . 'M',
             'is_active' => $this->isActive(),
             'is_completed' => $this->isCompleted(),
             'created_at' => $this->created_at?->toISOString(),
