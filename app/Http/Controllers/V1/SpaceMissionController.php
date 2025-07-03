@@ -28,6 +28,14 @@ class SpaceMissionController extends Controller
         return SpaceMissionResource::collection($spaceMissions);
     }
 
+    public function indexWithPipeline(): AnonymousResourceCollection
+    {
+        $missions = SpaceMission::filteredWithPipeline()
+            ->paginate();
+
+        return SpaceMissionResource::collection($missions);
+    }
+
     /**
      * Store a newly created resource in storage.
      */

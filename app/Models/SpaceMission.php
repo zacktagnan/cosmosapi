@@ -3,9 +3,15 @@
 namespace App\Models;
 
 use App\Builders\SpaceMissionQueryBuilder;
+use App\Filters\SpaceMission\BudgetRange;
+use App\Filters\SpaceMission\Destination;
+use App\Filters\SpaceMission\MissionType;
+use App\Filters\SpaceMission\Sort;
+use App\Filters\SpaceMission\Status;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Pipeline\Pipeline;
 
 class SpaceMission extends Model
 {
@@ -51,5 +57,19 @@ class SpaceMission extends Model
             ->orderByLaunchDate();
 
         return $spaceMissionQB->getQueryBuilder();
+    }
+
+    public function scopeFilteredWithPipeline(Builder $builder): Builder
+    {
+        return app(Pipeline::class)
+            ->send($builder)
+            ->through([
+                Destination::class,
+                Status::class,
+                MissionType::class,
+                BudgetRange::class,
+                Sort::class,
+            ])
+            ->thenReturn();
     }
 }
