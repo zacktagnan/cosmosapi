@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Builders\SpaceMissionQueryBuilder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class SpaceMission extends Model
 {
@@ -40,5 +42,14 @@ class SpaceMission extends Model
     public function isCompleted(): bool
     {
         return $this->status === 'completed';
+    }
+
+    public function scopeFiltered(Builder $builder): Builder
+    {
+        $spaceMissionQB = new SpaceMissionQueryBuilder($builder)
+            ->applyFilters(request())  // toma request() globalmente
+            ->orderByLaunchDate();
+
+        return $spaceMissionQB->getQueryBuilder();
     }
 }

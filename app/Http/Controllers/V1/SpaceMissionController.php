@@ -6,23 +6,27 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Builders\SpaceMissionQueryBuilder;
 use App\Http\Resources\V1\SpaceMissionResource;
+use App\Models\SpaceMission;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class SpaceMissionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(Request $request): AnonymousResourceCollection
+    // public function index(Request $request): AnonymousResourceCollection
+    // {
+    //     $missions = new SpaceMissionQueryBuilder()
+    //         ->applyFilters($request)
+    //         ->orderByLaunchDate()
+    //         ->paginate();
+
+    //     return SpaceMissionResource::collection($missions);
+    // }
+    public function index(): AnonymousResourceCollection
     {
-        $missions = new SpaceMissionQueryBuilder()
-            ->applyFilters($request)
-            ->orderByLaunchDate()
+        $spaceMissions = SpaceMission::filtered()
             ->paginate();
 
-        return SpaceMissionResource::collection($missions);
+        return SpaceMissionResource::collection($spaceMissions);
     }
-
 
     /**
      * Store a newly created resource in storage.

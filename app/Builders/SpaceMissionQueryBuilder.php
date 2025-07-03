@@ -10,9 +10,16 @@ class SpaceMissionQueryBuilder
 {
     private Builder $query;
 
-    public function __construct()
+    // public function __construct()
+    // {
+    //     $this->query = SpaceMission::query();
+    // }
+    // ============================================================================================
+    // Propio para el scopeFiltered del SpaceMission
+    // ============================================================================================
+    public function __construct(?Builder $builder = null)
     {
-        $this->query = SpaceMission::query();
+        $this->query = $builder ?? SpaceMission::query();
     }
 
     public function applyFilters(Request $request): self
@@ -78,5 +85,13 @@ class SpaceMissionQueryBuilder
     public function get(): \Illuminate\Database\Eloquent\Collection|array
     {
         return $this->query->get();
+    }
+
+    // ============================================================================================
+    // Propio para el scopeFiltered del SpaceMission
+    // ============================================================================================
+    public function getQueryBuilder(): Builder
+    {
+        return $this->query;
     }
 }
