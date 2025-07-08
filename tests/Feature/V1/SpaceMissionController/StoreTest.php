@@ -11,7 +11,7 @@ use Tests\DataProviders\SpaceMissionDataProvider;
 #[Group('api:v1:feat')]
 #[Group('api:v1:feat:space_missions')]
 #[Group('api:v1:feat:space_missions:store')]
-class StoreTest extends SpaceMissionCase
+class StoreTest extends SpaceMissionTestCase
 {
     #[Test]
     #[Group('api:v1:feat:space_missions:store:success')]

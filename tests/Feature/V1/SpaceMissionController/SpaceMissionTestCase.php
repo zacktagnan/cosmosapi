@@ -4,7 +4,7 @@ namespace Tests\Feature\V1\SpaceMissionController;
 
 use Tests\TestCase;
 
-abstract class SpaceMissionCase extends TestCase
+abstract class SpaceMissionTestCase extends TestCase
 {
     protected string $spaceMissionsBaseRouteName;
     protected string $table;

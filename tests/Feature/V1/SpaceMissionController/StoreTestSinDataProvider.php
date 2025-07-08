@@ -8,7 +8,7 @@ use PHPUnit\Framework\Attributes\Test;
 #[Group('api:v1')]
 #[Group('api:v1:feat')]
 #[Group('api:v1:feat:space_missions:store')]
-class StoreTestSinDataProvider extends SpaceMissionCase
+class StoreTestSinDataProvider extends SpaceMissionTestCase
 {
     #[Test]
     #[Group('api:v1:feat:space_missions:store:success')]

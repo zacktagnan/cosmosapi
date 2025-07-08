@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\Test;
 #[Group('api:v1:feat')]
 #[Group('api:v1:feat:space_missions')]
 #[Group('api:v1:feat:space_missions:list')]
-class IndexTest extends SpaceMissionCase
+class IndexTest extends SpaceMissionTestCase
 {
 
     #[Test]
