@@ -5,6 +5,7 @@ namespace App\Http\Controllers\V1;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Builders\SpaceMissionQueryBuilder;
+use App\Http\Requests\V1\StoreSpaceMissionRequest;
 use App\Http\Resources\V1\SpaceMissionResource;
 use App\Models\SpaceMission;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -39,9 +40,11 @@ class SpaceMissionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreSpaceMissionRequest $request)
     {
-        //
+        $spaceMission = SpaceMission::create($request->validated());
+
+        return new SpaceMissionResource($spaceMission);
     }
 
     /**
