@@ -12,7 +12,6 @@ use PHPUnit\Framework\Attributes\Test;
 #[Group('api:v1:feat:space_missions:list')]
 class IndexTest extends SpaceMissionTestCase
 {
-
     #[Test]
     #[Group('api:v1:feat:space_missions:list:auth')]
     public function it_requires_authentication_to_list_missions(): void

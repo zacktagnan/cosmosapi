@@ -66,7 +66,7 @@ class StoreTestSinDataProvider extends SpaceMissionTestCase
                 ]
             ]);
 
-        $this->assertDatabaseHas('space_missions', [
+        $this->assertDatabaseHas($this->table, [
             'name' => 'Test Mission Alpha',
             'destination' => 'Mars',
         ]);

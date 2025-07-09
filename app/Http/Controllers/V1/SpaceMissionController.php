@@ -40,7 +40,7 @@ class SpaceMissionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSpaceMissionRequest $request)
+    public function store(StoreSpaceMissionRequest $request): SpaceMissionResource
     {
         $spaceMission = SpaceMission::create($request->validated());
 
@@ -50,9 +50,9 @@ class SpaceMissionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(SpaceMission $spaceMission): SpaceMissionResource
     {
-        //
+        return new SpaceMissionResource($spaceMission);
     }
 
     /**
