@@ -93,11 +93,57 @@ class SpaceMissionDataProvider
     public static function provideSpaceMissionDataToUpdate(): array
     {
         return [
-            'club_data_to_update' => [
+            'space_mission_data_to_update' => [
                 [
-                    'name' => 'Updated Club Name',
-                    'budget' => 432000,
+                    'name' => 'Updated Mission Alpha',
+                    'destination' => 'Jupiter',
+                    'status' => 'active',
                 ],
+            ],
+        ];
+    }
+
+    public static function provideSpaceMissionPartialDataToUpdate(): array
+    {
+        return [
+            'space_mission_data_to_update' => [
+                [
+                    'name' => 'Partially Updated Mission',
+                ],
+            ],
+        ];
+    }
+
+    public static function provideInvalidSpaceMissionDataToUpdate(): array
+    {
+        return [
+            'string length constraints' => [
+                [
+                    'name' => str_repeat('a', 256), // Max is 255
+                    'description' => str_repeat('b', 1001) // Max is 1000
+                ],
+                ['name', 'description'],
+            ],
+            'launch date is past' => [
+                [
+                    'launch_date' => now()->subDay()->format('Y-m-d'),
+                ],
+                ['launch_date'],
+            ],
+            'invalid enum columns' => [
+                [
+                    'status' => 'invalid_status',
+                    'mission_type' => 'invalid_type',
+                ],
+                ['status', 'mission_type'],
+            ],
+            'invalid numeric columns' => [
+                [
+                    'duration_days' => -10,
+                    'crew_size' => 100,
+                    'budget_millions' => 0.50,
+                ],
+                ['duration_days', 'crew_size', 'budget_millions'],
             ],
         ];
     }

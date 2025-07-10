@@ -51,22 +51,22 @@ class StoreTest extends SpaceMissionTestCase
             ->assertJson([
                 'success' => true,
                 'data' => [
-                    'name' => 'Test Mission Alpha',
-                    'destination' => 'Mars',
-                    'status' => 'planned',
+                    'name' => $spaceMissionData['name'],
+                    'destination' => $spaceMissionData['destination'],
+                    'status' => $spaceMissionData['status'],
                 ]
             ]);
 
         $this->assertDatabaseHas($this->table, [
-            'name' => 'Test Mission Alpha',
-            'destination' => 'Mars',
+            'name' => $spaceMissionData['name'],
+            'destination' => $spaceMissionData['destination'],
         ]);
     }
 
     #[Test]
     #[Group('api:v1:feat:space_missions:store:validation')]
     #[DataProviderExternal(SpaceMissionDataProvider::class, 'provideInvalidSpaceMissionData')]
-    public function it_validates_required_fields_when_creating_mission(array $invalidData, array $expectedErrors): void
+    public function it_validates_required_fields_when_creating_space_mission(array $invalidData, array $expectedErrors): void
     {
         // Arrange / Act
         $response = $this

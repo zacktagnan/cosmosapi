@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Builders\SpaceMissionQueryBuilder;
 use App\Http\Requests\V1\StoreSpaceMissionRequest;
+use App\Http\Requests\V1\UpdateSpaceMissionRequest;
 use App\Http\Resources\V1\SpaceMissionResource;
 use App\Models\SpaceMission;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -58,9 +59,11 @@ class SpaceMissionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateSpaceMissionRequest $request, SpaceMission $spaceMission)
     {
-        //
+        $spaceMission->update($request->validated());
+
+        return new SpaceMissionResource($spaceMission->fresh());
     }
 
     /**
