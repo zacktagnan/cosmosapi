@@ -104,7 +104,7 @@ class UpdateTest extends SpaceMissionTestCase
         // Act
         $response = $this
             ->withToken($this->token)
-            ->putJson(route($this->spaceMissionsBaseRouteName . 'update', $spaceMission), $spaceMissionPartialDataToUpdate);
+            ->patchJson(route($this->spaceMissionsBaseRouteName . 'update', $spaceMission), $spaceMissionPartialDataToUpdate);
 
         // Assert
         $response->assertStatus(200)
