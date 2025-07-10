@@ -23,7 +23,10 @@ class ApiResponseMiddleware
             // No envolver (wrap) los errores de validación (422)
             // Laravel devuelve los errores de validación en un formato específico
             // que el middleware no debe procesar
-            if ($response->getStatusCode() === 422) {
+            // if ($response->getStatusCode() === 422) {
+            //     return $response;
+            // }
+            if (in_array($response->getStatusCode(), [204, 422])) {
                 return $response;
             }
 

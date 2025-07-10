@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\V1;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Builders\SpaceMissionQueryBuilder;
 use App\Http\Requests\V1\StoreSpaceMissionRequest;
@@ -10,6 +9,8 @@ use App\Http\Requests\V1\UpdateSpaceMissionRequest;
 use App\Http\Resources\V1\SpaceMissionResource;
 use App\Models\SpaceMission;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\JsonResponse;
+
 
 class SpaceMissionController extends Controller
 {
@@ -59,7 +60,7 @@ class SpaceMissionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSpaceMissionRequest $request, SpaceMission $spaceMission)
+    public function update(UpdateSpaceMissionRequest $request, SpaceMission $spaceMission): SpaceMissionResource
     {
         $spaceMission->update($request->validated());
 
@@ -69,8 +70,10 @@ class SpaceMissionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(SpaceMission $spaceMission): JsonResponse
     {
-        //
+        $spaceMission->delete();
+
+        return response()->json(null, 204);
     }
 }
