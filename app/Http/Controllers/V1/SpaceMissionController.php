@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\V1;
 
+use App\Actions\V1\SpaceMission\CreateSpaceMissionAction;
+use App\Actions\V1\SpaceMission\DeleteSpaceMissionAction;
+use App\Actions\V1\SpaceMission\UpdateSpaceMissionAction;
 use App\Http\Controllers\Controller;
 use App\Builders\SpaceMissionQueryBuilder;
 use App\Http\Requests\V1\StoreSpaceMissionRequest;
@@ -14,6 +17,12 @@ use Illuminate\Http\JsonResponse;
 
 class SpaceMissionController extends Controller
 {
+    public function __construct(
+        private readonly CreateSpaceMissionAction $createSpaceMissionAction,
+        private readonly UpdateSpaceMissionAction $updateSpaceMissionAction,
+        private readonly DeleteSpaceMissionAction $deleteSpaceMissionAction
+    ) {}
+
     // public function index(Request $request): AnonymousResourceCollection
     // {
     //     $missions = new SpaceMissionQueryBuilder()
@@ -44,7 +53,7 @@ class SpaceMissionController extends Controller
      */
     public function store(StoreSpaceMissionRequest $request): SpaceMissionResource
     {
-        $spaceMission = SpaceMission::create($request->validated());
+        $spaceMission = $this->createSpaceMissionAction->execute($request->validated());
 
         return new SpaceMissionResource($spaceMission);
     }
@@ -62,9 +71,9 @@ class SpaceMissionController extends Controller
      */
     public function update(UpdateSpaceMissionRequest $request, SpaceMission $spaceMission): SpaceMissionResource
     {
-        $spaceMission->update($request->validated());
+        $spaceMission = $this->updateSpaceMissionAction->execute($spaceMission, $request->validated());
 
-        return new SpaceMissionResource($spaceMission->fresh());
+        return new SpaceMissionResource($spaceMission);
     }
 
     /**
@@ -72,7 +81,7 @@ class SpaceMissionController extends Controller
      */
     public function destroy(SpaceMission $spaceMission): JsonResponse
     {
-        $spaceMission->delete();
+        $this->deleteSpaceMissionAction->execute($spaceMission);
 
         return response()->json(null, 204);
     }
