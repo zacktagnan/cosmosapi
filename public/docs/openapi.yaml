@@ -1,0 +1,237 @@
+openapi: 3.0.3
+info:
+  title: 'CosmosAPI API Documentation'
+  description: 'Esto es una API REST para la gestión de misiones espaciales. Actualmente, en su versión V1.'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:7415'
+tags:
+  -
+    name: 'Space Missions'
+    description: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
+paths:
+  /api/v1/space-missions:
+    get:
+      summary: ''
+      operationId: getApiV1SpaceMissions
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Space Missions'
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Space Missions'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'El campo value no debe ser mayor que 255 caracteres.'
+                  example: b
+                  nullable: false
+                destination:
+                  type: string
+                  description: 'El campo value no debe ser mayor que 255 caracteres.'
+                  example: 'n'
+                  nullable: false
+                description:
+                  type: string
+                  description: 'El campo value no debe ser mayor que 1000 caracteres.'
+                  example: 'Animi quos velit et fugiat.'
+                  nullable: false
+                launch_date:
+                  type: string
+                  description: 'El campo value debe ser una fecha válida. El campo value debe ser una fecha posterior o igual a <code>today</code>.'
+                  example: '2051-08-04'
+                  nullable: false
+                duration_days:
+                  type: integer
+                  description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 10000.'
+                  example: 22
+                  nullable: false
+                status:
+                  type: string
+                  description: ''
+                  example: completed
+                  nullable: false
+                  enum:
+                    - planned
+                    - active
+                    - completed
+                    - failed
+                    - cancelled
+                agency:
+                  type: string
+                  description: 'El campo value no debe ser mayor que 255 caracteres.'
+                  example: g
+                  nullable: false
+                crew_size:
+                  type: integer
+                  description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 50.'
+                  example: 16
+                  nullable: false
+                mission_type:
+                  type: string
+                  description: ''
+                  example: exploration
+                  nullable: false
+                  enum:
+                    - exploration
+                    - research
+                    - colonization
+                    - mining
+                    - rescue
+                budget_millions:
+                  type: number
+                  description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 999999.99.'
+                  example: 17
+                  nullable: false
+              required:
+                - name
+                - destination
+                - description
+                - launch_date
+                - duration_days
+                - status
+                - agency
+                - crew_size
+                - mission_type
+                - budget_millions
+  '/api/v1/space-missions/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Space Missions'
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Space Missions'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'El campo value no debe ser mayor que 255 caracteres.'
+                  example: b
+                  nullable: false
+                destination:
+                  type: string
+                  description: 'El campo value no debe ser mayor que 255 caracteres.'
+                  example: 'n'
+                  nullable: false
+                description:
+                  type: string
+                  description: 'El campo value no debe ser mayor que 1000 caracteres.'
+                  example: 'Animi quos velit et fugiat.'
+                  nullable: false
+                launch_date:
+                  type: string
+                  description: 'El campo value debe ser una fecha válida. El campo value debe ser una fecha posterior o igual a <code>today</code>.'
+                  example: '2051-08-04'
+                  nullable: false
+                duration_days:
+                  type: integer
+                  description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 10000.'
+                  example: 22
+                  nullable: false
+                status:
+                  type: string
+                  description: ''
+                  example: cancelled
+                  nullable: false
+                  enum:
+                    - planned
+                    - active
+                    - completed
+                    - failed
+                    - cancelled
+                agency:
+                  type: string
+                  description: 'El campo value no debe ser mayor que 255 caracteres.'
+                  example: g
+                  nullable: false
+                crew_size:
+                  type: integer
+                  description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 50.'
+                  example: 16
+                  nullable: false
+                mission_type:
+                  type: string
+                  description: ''
+                  example: rescue
+                  nullable: false
+                  enum:
+                    - exploration
+                    - research
+                    - colonization
+                    - mining
+                    - rescue
+                budget_millions:
+                  type: number
+                  description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 999999.99.'
+                  example: 17
+                  nullable: false
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Space Missions'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the space mission.'
+        example: 1
+        required: true
+        schema:
+          type: integer

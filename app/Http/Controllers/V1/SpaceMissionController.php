@@ -13,8 +13,11 @@ use App\Http\Resources\V1\SpaceMissionResource;
 use App\Models\SpaceMission;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\JsonResponse;
+use Knuckles\Scribe\Attributes\Authenticated;
+use Knuckles\Scribe\Attributes\Group;
 
-
+#[Group('Space Missions', 'Manage space missions - create, read, update and delete missions to different planets and destinations.')]
+#[Authenticated()]
 class SpaceMissionController extends Controller
 {
     public function __construct(
