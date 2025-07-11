@@ -1,13 +1,13 @@
-name: 'Space Missions'
-description: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
+name: Authentication
+description: ''
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/v1/space-missions
+      - POST
+    uri: api/v1/login
     metadata:
-      groupName: 'Space Missions'
-      groupDescription: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
+      groupName: Authentication
+      groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
       title: ''
@@ -22,19 +22,32 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"success":true,"message":"Request processed successfully","data":{"data":[{"id":66,"name":"Mars Colony Alpha","destination":"Mars","description":"Primera colonia humana permanente en Marte. Establecimiento de infraestructura cr\u00edtica para futuros esfuerzos de colonizaci\u00f3n, incluyendo sistemas de soporte vital, agricultura marciana y producci\u00f3n de combustible local.","launch_date":"2028-07-20","duration_days":900,"status":"planned","agency":"SpaceX","crew_size":8,"mission_type":"colonization","budget_millions":"12,000.00","budget_millions_formatted":"$12,000.0M","is_active":false,"is_completed":false,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":24,"name":"Kepler 80","destination":"Earth Orbit","description":"Et aut distinctio aut provident assumenda neque. Itaque quasi et magnam ut. Nulla nemo maiores beatae optio est enim cupiditate explicabo. Laudantium in placeat vero reprehenderit dolorem tempora.","launch_date":"2027-06-23","duration_days":2256,"status":"cancelled","agency":"JAXA","crew_size":8,"mission_type":"colonization","budget_millions":"3,156.95","budget_millions_formatted":"$3,157.0M","is_active":false,"is_completed":false,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":55,"name":"Kepler 65","destination":"Mars","description":"Est qui sed aut nostrum. Repellendus libero quam enim sit repellat ut. Mollitia eius nesciunt in non.","launch_date":"2027-05-25","duration_days":829,"status":"cancelled","agency":"JAXA","crew_size":11,"mission_type":"rescue","budget_millions":"7,556.11","budget_millions_formatted":"$7,556.1M","is_active":false,"is_completed":false,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":44,"name":"Hubble 43","destination":"Saturn","description":"Rerum dolores dolor dignissimos molestiae totam et. Illo sed officia quisquam est aut autem nihil. Et debitis voluptatem nulla et.","launch_date":"2027-05-19","duration_days":358,"status":"failed","agency":"Blue Origin","crew_size":4,"mission_type":"rescue","budget_millions":"1,405.13","budget_millions_formatted":"$1,405.1M","is_active":false,"is_completed":false,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":38,"name":"Orion 33","destination":"Asteroid Belt","description":"Eaque consequatur iure porro eaque nisi ut et. Est officiis reprehenderit assumenda dignissimos. In quibusdam veniam similique consequatur at ea.","launch_date":"2027-02-27","duration_days":628,"status":"cancelled","agency":"JAXA","crew_size":12,"mission_type":"mining","budget_millions":"12,294.20","budget_millions_formatted":"$12,294.2M","is_active":false,"is_completed":false,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":57,"name":"Voyager 4","destination":"Saturn","description":"Qui molestiae necessitatibus ex dignissimos nostrum. Et explicabo accusantium ex voluptatem. Est provident vitae ex in temporibus et modi.","launch_date":"2027-02-25","duration_days":2345,"status":"planned","agency":"ESA","crew_size":5,"mission_type":"rescue","budget_millions":"822.96","budget_millions_formatted":"$823.0M","is_active":false,"is_completed":false,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":36,"name":"Cassini 52","destination":"Saturn","description":"Quia qui officiis sunt ipsam vero. Reiciendis officia eos vel nihil. Quis quia vitae cum mollitia sed natus distinctio.","launch_date":"2027-02-25","duration_days":2077,"status":"completed","agency":"ESA","crew_size":4,"mission_type":"colonization","budget_millions":"11,002.81","budget_millions_formatted":"$11,002.8M","is_active":false,"is_completed":true,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":61,"name":"Hubble 50","destination":"Mars","description":"Error autem laborum unde id non accusamus dolores. Veritatis ea dolore est alias. Odio quasi ea officia aspernatur. Ad repellendus doloremque necessitatibus ad commodi autem.","launch_date":"2027-02-21","duration_days":854,"status":"failed","agency":"SpaceX","crew_size":10,"mission_type":"colonization","budget_millions":"14,991.43","budget_millions_formatted":"$14,991.4M","is_active":false,"is_completed":false,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":35,"name":"Kepler 27","destination":"Alpha Centauri","description":"Consequatur nisi fugiat alias ut porro. Corporis qui et illo molestiae iste eos voluptatem. Laboriosam et numquam alias autem minus.","launch_date":"2026-12-14","duration_days":928,"status":"cancelled","agency":"Roscosmos","crew_size":0,"mission_type":"research","budget_millions":"4,887.43","budget_millions_formatted":"$4,887.4M","is_active":false,"is_completed":false,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":43,"name":"Hubble 96","destination":"Saturn","description":"Harum quo qui est corrupti officiis. Numquam rerum error labore omnis eum distinctio explicabo.","launch_date":"2026-12-12","duration_days":1637,"status":"active","agency":"ISRO","crew_size":4,"mission_type":"rescue","budget_millions":"572.98","budget_millions_formatted":"$573.0M","is_active":true,"is_completed":false,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":6,"name":"Cassini 19","destination":"Moon","description":"Dolores perspiciatis dignissimos molestias porro. Placeat voluptatum doloremque deserunt minus voluptatem qui consequatur. Iste maiores quae amet nesciunt consequatur omnis qui quo. Voluptates enim omnis voluptatem eum et repellendus voluptatem.","launch_date":"2026-12-05","duration_days":1847,"status":"cancelled","agency":"ESA","crew_size":7,"mission_type":"maintenance","budget_millions":"13,364.75","budget_millions_formatted":"$13,364.8M","is_active":false,"is_completed":false,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":11,"name":"Artemis 16","destination":"Europa","description":"Velit laudantium fugiat ab facere qui. Sapiente molestiae quia culpa dolor rem nulla. Molestias porro sunt voluptas tempore. Est et saepe vel voluptas id non.","launch_date":"2026-11-25","duration_days":201,"status":"completed","agency":"CNSA","crew_size":3,"mission_type":"exploration","budget_millions":"12,819.07","budget_millions_formatted":"$12,819.1M","is_active":false,"is_completed":true,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":2,"name":"Hubble 53","destination":"Saturn","description":"Eum aut voluptatum quam consequatur. Quo error consequatur ducimus autem. Et repellat sit autem et eos qui.","launch_date":"2026-10-13","duration_days":569,"status":"failed","agency":"ISRO","crew_size":11,"mission_type":"exploration","budget_millions":"10,399.78","budget_millions_formatted":"$10,399.8M","is_active":false,"is_completed":false,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":1,"name":"Pioneer 20","destination":"Asteroid Belt","description":"Similique non sunt sit et id a enim. Quaerat aliquid in architecto nam. Ad quisquam delectus veritatis omnis. Aut voluptas porro non accusantium velit. Nihil earum hic ipsa illum.","launch_date":"2026-09-16","duration_days":1523,"status":"completed","agency":"JAXA","crew_size":11,"mission_type":"exploration","budget_millions":"13,346.28","budget_millions_formatted":"$13,346.3M","is_active":false,"is_completed":true,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},{"id":65,"name":"Artemis III","destination":"Moon","description":"Misi\u00f3n hist\u00f3rica para devolver a los humanos a la superficie lunar por primera vez desde el Apolo 17. Se centra en establecer una exploraci\u00f3n lunar sostenible y preparar futuras misiones a Marte, incluyendo el primer alunizaje de una mujer.","launch_date":"2026-09-15","duration_days":30,"status":"planned","agency":"NASA","crew_size":4,"mission_type":"exploration","budget_millions":"7,500.00","budget_millions_formatted":"$7,500.0M","is_active":false,"is_completed":false,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"}],"links":{"first":"http:\/\/localhost:7415\/api\/v1\/space-missions?page=1","last":"http:\/\/localhost:7415\/api\/v1\/space-missions?page=5","prev":null,"next":"http:\/\/localhost:7415\/api\/v1\/space-missions?page=2"},"meta":{"current_page":1,"from":1,"last_page":5,"links":[{"url":null,"label":"&laquo; Anterior","active":false},{"url":"http:\/\/localhost:7415\/api\/v1\/space-missions?page=1","label":"1","active":true},{"url":"http:\/\/localhost:7415\/api\/v1\/space-missions?page=2","label":"2","active":false},{"url":"http:\/\/localhost:7415\/api\/v1\/space-missions?page=3","label":"3","active":false},{"url":"http:\/\/localhost:7415\/api\/v1\/space-missions?page=4","label":"4","active":false},{"url":"http:\/\/localhost:7415\/api\/v1\/space-missions?page=5","label":"5","active":false},{"url":"http:\/\/localhost:7415\/api\/v1\/space-missions?page=2","label":"Siguiente &raquo;","active":false}],"path":"http:\/\/localhost:7415\/api\/v1\/space-missions","per_page":15,"to":15,"total":69}},"timestamp":"2025-07-11T01:34:20+00:00"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+    bodyParameters:
+      email:
+        name: email
+        description: ''
+        required: true
+        example: scribe@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
         custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: password
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: scribe@example.com
+      password: password
+    fileParameters: []
+    responses: []
     responseFields: []
     auth:
       - headers
@@ -47,13 +60,13 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/space-missions
+    uri: api/v1/logout
     metadata:
-      groupName: 'Space Missions'
-      groupDescription: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
+      groupName: Authentication
+      groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
+      title: ''
       description: ''
       authenticated: true
       custom: []
@@ -63,391 +76,6 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'El campo value no debe ser mayor que 255 caracteres.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      destination:
-        name: destination
-        description: 'El campo value no debe ser mayor que 255 caracteres.'
-        required: true
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      description:
-        name: description
-        description: 'El campo value no debe ser mayor que 1000 caracteres.'
-        required: true
-        example: 'Animi quos velit et fugiat.'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      launch_date:
-        name: launch_date
-        description: 'El campo value debe ser una fecha válida. El campo value debe ser una fecha posterior o igual a <code>today</code>.'
-        required: true
-        example: '2051-08-04'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      duration_days:
-        name: duration_days
-        description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 10000.'
-        required: true
-        example: 22
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      status:
-        name: status
-        description: ''
-        required: true
-        example: failed
-        type: string
-        enumValues:
-          - planned
-          - active
-          - completed
-          - failed
-          - cancelled
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      agency:
-        name: agency
-        description: 'El campo value no debe ser mayor que 255 caracteres.'
-        required: true
-        example: g
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      crew_size:
-        name: crew_size
-        description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 50.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      mission_type:
-        name: mission_type
-        description: ''
-        required: true
-        example: colonization
-        type: string
-        enumValues:
-          - exploration
-          - research
-          - colonization
-          - mining
-          - rescue
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      budget_millions:
-        name: budget_millions
-        description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 999999.99.'
-        required: true
-        example: 17
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanBodyParameters:
-      name: b
-      destination: 'n'
-      description: 'Animi quos velit et fugiat.'
-      launch_date: '2051-08-04'
-      duration_days: 22
-      status: failed
-      agency: g
-      crew_size: 16
-      mission_type: colonization
-      budget_millions: 17
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/space-missions/{id}'
-    metadata:
-      groupName: 'Space Missions'
-      groupDescription: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the space mission.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"success":true,"message":"Request processed successfully","data":{"id":1,"name":"Pioneer 20","destination":"Asteroid Belt","description":"Similique non sunt sit et id a enim. Quaerat aliquid in architecto nam. Ad quisquam delectus veritatis omnis. Aut voluptas porro non accusantium velit. Nihil earum hic ipsa illum.","launch_date":"2026-09-16","duration_days":1523,"status":"completed","agency":"JAXA","crew_size":11,"mission_type":"exploration","budget_millions":"13,346.28","budget_millions_formatted":"$13,346.3M","is_active":false,"is_completed":true,"created_at":"2025-07-01T18:10:25.000000Z","updated_at":"2025-07-01T18:10:25.000000Z"},"timestamp":"2025-07-11T01:34:20+00:00"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PUT
-      - PATCH
-    uri: 'api/v1/space-missions/{id}'
-    metadata:
-      groupName: 'Space Missions'
-      groupDescription: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the space mission.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'El campo value no debe ser mayor que 255 caracteres.'
-        required: false
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      destination:
-        name: destination
-        description: 'El campo value no debe ser mayor que 255 caracteres.'
-        required: false
-        example: 'n'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      description:
-        name: description
-        description: 'El campo value no debe ser mayor que 1000 caracteres.'
-        required: false
-        example: 'Animi quos velit et fugiat.'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      launch_date:
-        name: launch_date
-        description: 'El campo value debe ser una fecha válida. El campo value debe ser una fecha posterior o igual a <code>today</code>.'
-        required: false
-        example: '2051-08-04'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      duration_days:
-        name: duration_days
-        description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 10000.'
-        required: false
-        example: 22
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      status:
-        name: status
-        description: ''
-        required: false
-        example: active
-        type: string
-        enumValues:
-          - planned
-          - active
-          - completed
-          - failed
-          - cancelled
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      agency:
-        name: agency
-        description: 'El campo value no debe ser mayor que 255 caracteres.'
-        required: false
-        example: g
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      crew_size:
-        name: crew_size
-        description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 50.'
-        required: false
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      mission_type:
-        name: mission_type
-        description: ''
-        required: false
-        example: rescue
-        type: string
-        enumValues:
-          - exploration
-          - research
-          - colonization
-          - mining
-          - rescue
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      budget_millions:
-        name: budget_millions
-        description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 999999.99.'
-        required: false
-        example: 17
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanBodyParameters:
-      name: b
-      destination: 'n'
-      description: 'Animi quos velit et fugiat.'
-      launch_date: '2051-08-04'
-      duration_days: 22
-      status: active
-      agency: g
-      crew_size: 16
-      mission_type: rescue
-      budget_millions: 17
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/v1/space-missions/{id}'
-    metadata:
-      groupName: 'Space Missions'
-      groupDescription: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the space mission.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

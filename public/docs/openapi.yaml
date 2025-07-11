@@ -8,6 +8,9 @@ servers:
     url: 'http://localhost:7415'
 tags:
   -
+    name: Authentication
+    description: ''
+  -
     name: 'Space Missions'
     description: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
 components:
@@ -20,6 +23,44 @@ security:
   -
     default: []
 paths:
+  /api/v1/login:
+    post:
+      summary: ''
+      operationId: postApiV1Login
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: ''
+                  example: scribe@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: ''
+                  example: password
+                  nullable: false
+              required:
+                - email
+                - password
+  /api/v1/logout:
+    post:
+      summary: ''
+      operationId: postApiV1Logout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Authentication
   /api/v1/space-missions:
     get:
       summary: ''
@@ -335,7 +376,7 @@ paths:
                       per_page: 15
                       to: 15
                       total: 69
-                  timestamp: '2025-07-11T01:34:20+00:00'
+                  timestamp: '2025-07-11T02:12:05+00:00'
                 properties:
                   success:
                     type: boolean
@@ -739,7 +780,7 @@ paths:
                             example: 69
                   timestamp:
                     type: string
-                    example: '2025-07-11T01:34:20+00:00'
+                    example: '2025-07-11T02:12:05+00:00'
       tags:
         - 'Space Missions'
     post:
@@ -785,7 +826,7 @@ paths:
                 status:
                   type: string
                   description: ''
-                  example: failed
+                  example: planned
                   nullable: false
                   enum:
                     - planned
@@ -806,7 +847,7 @@ paths:
                 mission_type:
                   type: string
                   description: ''
-                  example: colonization
+                  example: research
                   nullable: false
                   enum:
                     - exploration
@@ -863,7 +904,7 @@ paths:
                     is_completed: true
                     created_at: '2025-07-01T18:10:25.000000Z'
                     updated_at: '2025-07-01T18:10:25.000000Z'
-                  timestamp: '2025-07-11T01:34:20+00:00'
+                  timestamp: '2025-07-11T02:12:05+00:00'
                 properties:
                   success:
                     type: boolean
@@ -924,7 +965,7 @@ paths:
                         example: '2025-07-01T18:10:25.000000Z'
                   timestamp:
                     type: string
-                    example: '2025-07-11T01:34:20+00:00'
+                    example: '2025-07-11T02:12:05+00:00'
       tags:
         - 'Space Missions'
     put:
@@ -970,7 +1011,7 @@ paths:
                 status:
                   type: string
                   description: ''
-                  example: active
+                  example: cancelled
                   nullable: false
                   enum:
                     - planned
@@ -991,7 +1032,7 @@ paths:
                 mission_type:
                   type: string
                   description: ''
-                  example: rescue
+                  example: research
                   nullable: false
                   enum:
                     - exploration

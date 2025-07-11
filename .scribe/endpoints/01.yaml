@@ -1,0 +1,465 @@
+name: 'Space Missions'
+description: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/space-missions
+    metadata:
+      groupName: 'Space Missions'
+      groupDescription: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/space-missions
+    metadata:
+      groupName: 'Space Missions'
+      groupDescription: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store a newly created resource in storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'El campo value no debe ser mayor que 255 caracteres.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      destination:
+        name: destination
+        description: 'El campo value no debe ser mayor que 255 caracteres.'
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'El campo value no debe ser mayor que 1000 caracteres.'
+        required: true
+        example: 'Animi quos velit et fugiat.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      launch_date:
+        name: launch_date
+        description: 'El campo value debe ser una fecha válida. El campo value debe ser una fecha posterior o igual a <code>today</code>.'
+        required: true
+        example: '2051-08-04'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      duration_days:
+        name: duration_days
+        description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 10000.'
+        required: true
+        example: 22
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: ''
+        required: true
+        example: cancelled
+        type: string
+        enumValues:
+          - planned
+          - active
+          - completed
+          - failed
+          - cancelled
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      agency:
+        name: agency
+        description: 'El campo value no debe ser mayor que 255 caracteres.'
+        required: true
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      crew_size:
+        name: crew_size
+        description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 50.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      mission_type:
+        name: mission_type
+        description: ''
+        required: true
+        example: research
+        type: string
+        enumValues:
+          - exploration
+          - research
+          - colonization
+          - mining
+          - rescue
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      budget_millions:
+        name: budget_millions
+        description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 999999.99.'
+        required: true
+        example: 17
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: b
+      destination: 'n'
+      description: 'Animi quos velit et fugiat.'
+      launch_date: '2051-08-04'
+      duration_days: 22
+      status: cancelled
+      agency: g
+      crew_size: 16
+      mission_type: research
+      budget_millions: 17
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/space-missions/{id}'
+    metadata:
+      groupName: 'Space Missions'
+      groupDescription: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display the specified resource.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the space mission.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/space-missions/{id}'
+    metadata:
+      groupName: 'Space Missions'
+      groupDescription: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update the specified resource in storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the space mission.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'El campo value no debe ser mayor que 255 caracteres.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      destination:
+        name: destination
+        description: 'El campo value no debe ser mayor que 255 caracteres.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'El campo value no debe ser mayor que 1000 caracteres.'
+        required: false
+        example: 'Animi quos velit et fugiat.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      launch_date:
+        name: launch_date
+        description: 'El campo value debe ser una fecha válida. El campo value debe ser una fecha posterior o igual a <code>today</code>.'
+        required: false
+        example: '2051-08-04'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      duration_days:
+        name: duration_days
+        description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 10000.'
+        required: false
+        example: 22
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: ''
+        required: false
+        example: planned
+        type: string
+        enumValues:
+          - planned
+          - active
+          - completed
+          - failed
+          - cancelled
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      agency:
+        name: agency
+        description: 'El campo value no debe ser mayor que 255 caracteres.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      crew_size:
+        name: crew_size
+        description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 50.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      mission_type:
+        name: mission_type
+        description: ''
+        required: false
+        example: exploration
+        type: string
+        enumValues:
+          - exploration
+          - research
+          - colonization
+          - mining
+          - rescue
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      budget_millions:
+        name: budget_millions
+        description: 'El tamaño de value debe ser de al menos 1. El campo value no debe ser mayor que 999999.99.'
+        required: false
+        example: 17
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: b
+      destination: 'n'
+      description: 'Animi quos velit et fugiat.'
+      launch_date: '2051-08-04'
+      duration_days: 22
+      status: planned
+      agency: g
+      crew_size: 16
+      mission_type: exploration
+      budget_millions: 17
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/space-missions/{id}'
+    metadata:
+      groupName: 'Space Missions'
+      groupDescription: 'Manage space missions - create, read, update and delete missions to different planets and destinations.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove the specified resource from storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the space mission.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6'
+    controller: null
+    method: null
+    route: null
+    custom: []
