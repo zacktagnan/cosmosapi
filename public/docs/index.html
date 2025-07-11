@@ -45,6 +45,7 @@
     </span>
 </a>
 <div class="tocify-wrapper">
+            <img src="docs/images/cosmosapi-logo-con_marca_y_txt.png" alt="logo" class="logo" style="padding-top: 10px;" width="100%"/>
     
             <div class="lang-selector">
                                             <button type="button" class="lang-button" data-language-name="bash">bash</button>
@@ -115,7 +116,9 @@
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).&lt;/aside&gt;</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>This API is not authenticated.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
         <h1 id="space-missions">Space Missions</h1>
 
@@ -136,6 +139,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:7415/api/v1/space-missions" \
+    --header "Authorization: Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -146,6 +150,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 );
 
 const headers = {
+    "Authorization": "Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -159,7 +164,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-space-missions">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -171,7 +176,335 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;success&quot;: true,
+    &quot;message&quot;: &quot;Request processed successfully&quot;,
+    &quot;data&quot;: {
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 66,
+                &quot;name&quot;: &quot;Mars Colony Alpha&quot;,
+                &quot;destination&quot;: &quot;Mars&quot;,
+                &quot;description&quot;: &quot;Primera colonia humana permanente en Marte. Establecimiento de infraestructura cr&iacute;tica para futuros esfuerzos de colonizaci&oacute;n, incluyendo sistemas de soporte vital, agricultura marciana y producci&oacute;n de combustible local.&quot;,
+                &quot;launch_date&quot;: &quot;2028-07-20&quot;,
+                &quot;duration_days&quot;: 900,
+                &quot;status&quot;: &quot;planned&quot;,
+                &quot;agency&quot;: &quot;SpaceX&quot;,
+                &quot;crew_size&quot;: 8,
+                &quot;mission_type&quot;: &quot;colonization&quot;,
+                &quot;budget_millions&quot;: &quot;12,000.00&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$12,000.0M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: false,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 24,
+                &quot;name&quot;: &quot;Kepler 80&quot;,
+                &quot;destination&quot;: &quot;Earth Orbit&quot;,
+                &quot;description&quot;: &quot;Et aut distinctio aut provident assumenda neque. Itaque quasi et magnam ut. Nulla nemo maiores beatae optio est enim cupiditate explicabo. Laudantium in placeat vero reprehenderit dolorem tempora.&quot;,
+                &quot;launch_date&quot;: &quot;2027-06-23&quot;,
+                &quot;duration_days&quot;: 2256,
+                &quot;status&quot;: &quot;cancelled&quot;,
+                &quot;agency&quot;: &quot;JAXA&quot;,
+                &quot;crew_size&quot;: 8,
+                &quot;mission_type&quot;: &quot;colonization&quot;,
+                &quot;budget_millions&quot;: &quot;3,156.95&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$3,157.0M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: false,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 55,
+                &quot;name&quot;: &quot;Kepler 65&quot;,
+                &quot;destination&quot;: &quot;Mars&quot;,
+                &quot;description&quot;: &quot;Est qui sed aut nostrum. Repellendus libero quam enim sit repellat ut. Mollitia eius nesciunt in non.&quot;,
+                &quot;launch_date&quot;: &quot;2027-05-25&quot;,
+                &quot;duration_days&quot;: 829,
+                &quot;status&quot;: &quot;cancelled&quot;,
+                &quot;agency&quot;: &quot;JAXA&quot;,
+                &quot;crew_size&quot;: 11,
+                &quot;mission_type&quot;: &quot;rescue&quot;,
+                &quot;budget_millions&quot;: &quot;7,556.11&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$7,556.1M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: false,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 44,
+                &quot;name&quot;: &quot;Hubble 43&quot;,
+                &quot;destination&quot;: &quot;Saturn&quot;,
+                &quot;description&quot;: &quot;Rerum dolores dolor dignissimos molestiae totam et. Illo sed officia quisquam est aut autem nihil. Et debitis voluptatem nulla et.&quot;,
+                &quot;launch_date&quot;: &quot;2027-05-19&quot;,
+                &quot;duration_days&quot;: 358,
+                &quot;status&quot;: &quot;failed&quot;,
+                &quot;agency&quot;: &quot;Blue Origin&quot;,
+                &quot;crew_size&quot;: 4,
+                &quot;mission_type&quot;: &quot;rescue&quot;,
+                &quot;budget_millions&quot;: &quot;1,405.13&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$1,405.1M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: false,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 38,
+                &quot;name&quot;: &quot;Orion 33&quot;,
+                &quot;destination&quot;: &quot;Asteroid Belt&quot;,
+                &quot;description&quot;: &quot;Eaque consequatur iure porro eaque nisi ut et. Est officiis reprehenderit assumenda dignissimos. In quibusdam veniam similique consequatur at ea.&quot;,
+                &quot;launch_date&quot;: &quot;2027-02-27&quot;,
+                &quot;duration_days&quot;: 628,
+                &quot;status&quot;: &quot;cancelled&quot;,
+                &quot;agency&quot;: &quot;JAXA&quot;,
+                &quot;crew_size&quot;: 12,
+                &quot;mission_type&quot;: &quot;mining&quot;,
+                &quot;budget_millions&quot;: &quot;12,294.20&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$12,294.2M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: false,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 57,
+                &quot;name&quot;: &quot;Voyager 4&quot;,
+                &quot;destination&quot;: &quot;Saturn&quot;,
+                &quot;description&quot;: &quot;Qui molestiae necessitatibus ex dignissimos nostrum. Et explicabo accusantium ex voluptatem. Est provident vitae ex in temporibus et modi.&quot;,
+                &quot;launch_date&quot;: &quot;2027-02-25&quot;,
+                &quot;duration_days&quot;: 2345,
+                &quot;status&quot;: &quot;planned&quot;,
+                &quot;agency&quot;: &quot;ESA&quot;,
+                &quot;crew_size&quot;: 5,
+                &quot;mission_type&quot;: &quot;rescue&quot;,
+                &quot;budget_millions&quot;: &quot;822.96&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$823.0M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: false,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 36,
+                &quot;name&quot;: &quot;Cassini 52&quot;,
+                &quot;destination&quot;: &quot;Saturn&quot;,
+                &quot;description&quot;: &quot;Quia qui officiis sunt ipsam vero. Reiciendis officia eos vel nihil. Quis quia vitae cum mollitia sed natus distinctio.&quot;,
+                &quot;launch_date&quot;: &quot;2027-02-25&quot;,
+                &quot;duration_days&quot;: 2077,
+                &quot;status&quot;: &quot;completed&quot;,
+                &quot;agency&quot;: &quot;ESA&quot;,
+                &quot;crew_size&quot;: 4,
+                &quot;mission_type&quot;: &quot;colonization&quot;,
+                &quot;budget_millions&quot;: &quot;11,002.81&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$11,002.8M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: true,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 61,
+                &quot;name&quot;: &quot;Hubble 50&quot;,
+                &quot;destination&quot;: &quot;Mars&quot;,
+                &quot;description&quot;: &quot;Error autem laborum unde id non accusamus dolores. Veritatis ea dolore est alias. Odio quasi ea officia aspernatur. Ad repellendus doloremque necessitatibus ad commodi autem.&quot;,
+                &quot;launch_date&quot;: &quot;2027-02-21&quot;,
+                &quot;duration_days&quot;: 854,
+                &quot;status&quot;: &quot;failed&quot;,
+                &quot;agency&quot;: &quot;SpaceX&quot;,
+                &quot;crew_size&quot;: 10,
+                &quot;mission_type&quot;: &quot;colonization&quot;,
+                &quot;budget_millions&quot;: &quot;14,991.43&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$14,991.4M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: false,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 35,
+                &quot;name&quot;: &quot;Kepler 27&quot;,
+                &quot;destination&quot;: &quot;Alpha Centauri&quot;,
+                &quot;description&quot;: &quot;Consequatur nisi fugiat alias ut porro. Corporis qui et illo molestiae iste eos voluptatem. Laboriosam et numquam alias autem minus.&quot;,
+                &quot;launch_date&quot;: &quot;2026-12-14&quot;,
+                &quot;duration_days&quot;: 928,
+                &quot;status&quot;: &quot;cancelled&quot;,
+                &quot;agency&quot;: &quot;Roscosmos&quot;,
+                &quot;crew_size&quot;: 0,
+                &quot;mission_type&quot;: &quot;research&quot;,
+                &quot;budget_millions&quot;: &quot;4,887.43&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$4,887.4M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: false,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 43,
+                &quot;name&quot;: &quot;Hubble 96&quot;,
+                &quot;destination&quot;: &quot;Saturn&quot;,
+                &quot;description&quot;: &quot;Harum quo qui est corrupti officiis. Numquam rerum error labore omnis eum distinctio explicabo.&quot;,
+                &quot;launch_date&quot;: &quot;2026-12-12&quot;,
+                &quot;duration_days&quot;: 1637,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;agency&quot;: &quot;ISRO&quot;,
+                &quot;crew_size&quot;: 4,
+                &quot;mission_type&quot;: &quot;rescue&quot;,
+                &quot;budget_millions&quot;: &quot;572.98&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$573.0M&quot;,
+                &quot;is_active&quot;: true,
+                &quot;is_completed&quot;: false,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 6,
+                &quot;name&quot;: &quot;Cassini 19&quot;,
+                &quot;destination&quot;: &quot;Moon&quot;,
+                &quot;description&quot;: &quot;Dolores perspiciatis dignissimos molestias porro. Placeat voluptatum doloremque deserunt minus voluptatem qui consequatur. Iste maiores quae amet nesciunt consequatur omnis qui quo. Voluptates enim omnis voluptatem eum et repellendus voluptatem.&quot;,
+                &quot;launch_date&quot;: &quot;2026-12-05&quot;,
+                &quot;duration_days&quot;: 1847,
+                &quot;status&quot;: &quot;cancelled&quot;,
+                &quot;agency&quot;: &quot;ESA&quot;,
+                &quot;crew_size&quot;: 7,
+                &quot;mission_type&quot;: &quot;maintenance&quot;,
+                &quot;budget_millions&quot;: &quot;13,364.75&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$13,364.8M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: false,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 11,
+                &quot;name&quot;: &quot;Artemis 16&quot;,
+                &quot;destination&quot;: &quot;Europa&quot;,
+                &quot;description&quot;: &quot;Velit laudantium fugiat ab facere qui. Sapiente molestiae quia culpa dolor rem nulla. Molestias porro sunt voluptas tempore. Est et saepe vel voluptas id non.&quot;,
+                &quot;launch_date&quot;: &quot;2026-11-25&quot;,
+                &quot;duration_days&quot;: 201,
+                &quot;status&quot;: &quot;completed&quot;,
+                &quot;agency&quot;: &quot;CNSA&quot;,
+                &quot;crew_size&quot;: 3,
+                &quot;mission_type&quot;: &quot;exploration&quot;,
+                &quot;budget_millions&quot;: &quot;12,819.07&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$12,819.1M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: true,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Hubble 53&quot;,
+                &quot;destination&quot;: &quot;Saturn&quot;,
+                &quot;description&quot;: &quot;Eum aut voluptatum quam consequatur. Quo error consequatur ducimus autem. Et repellat sit autem et eos qui.&quot;,
+                &quot;launch_date&quot;: &quot;2026-10-13&quot;,
+                &quot;duration_days&quot;: 569,
+                &quot;status&quot;: &quot;failed&quot;,
+                &quot;agency&quot;: &quot;ISRO&quot;,
+                &quot;crew_size&quot;: 11,
+                &quot;mission_type&quot;: &quot;exploration&quot;,
+                &quot;budget_millions&quot;: &quot;10,399.78&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$10,399.8M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: false,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Pioneer 20&quot;,
+                &quot;destination&quot;: &quot;Asteroid Belt&quot;,
+                &quot;description&quot;: &quot;Similique non sunt sit et id a enim. Quaerat aliquid in architecto nam. Ad quisquam delectus veritatis omnis. Aut voluptas porro non accusantium velit. Nihil earum hic ipsa illum.&quot;,
+                &quot;launch_date&quot;: &quot;2026-09-16&quot;,
+                &quot;duration_days&quot;: 1523,
+                &quot;status&quot;: &quot;completed&quot;,
+                &quot;agency&quot;: &quot;JAXA&quot;,
+                &quot;crew_size&quot;: 11,
+                &quot;mission_type&quot;: &quot;exploration&quot;,
+                &quot;budget_millions&quot;: &quot;13,346.28&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$13,346.3M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: true,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 65,
+                &quot;name&quot;: &quot;Artemis III&quot;,
+                &quot;destination&quot;: &quot;Moon&quot;,
+                &quot;description&quot;: &quot;Misi&oacute;n hist&oacute;rica para devolver a los humanos a la superficie lunar por primera vez desde el Apolo 17. Se centra en establecer una exploraci&oacute;n lunar sostenible y preparar futuras misiones a Marte, incluyendo el primer alunizaje de una mujer.&quot;,
+                &quot;launch_date&quot;: &quot;2026-09-15&quot;,
+                &quot;duration_days&quot;: 30,
+                &quot;status&quot;: &quot;planned&quot;,
+                &quot;agency&quot;: &quot;NASA&quot;,
+                &quot;crew_size&quot;: 4,
+                &quot;mission_type&quot;: &quot;exploration&quot;,
+                &quot;budget_millions&quot;: &quot;7,500.00&quot;,
+                &quot;budget_millions_formatted&quot;: &quot;$7,500.0M&quot;,
+                &quot;is_active&quot;: false,
+                &quot;is_completed&quot;: false,
+                &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+            }
+        ],
+        &quot;links&quot;: {
+            &quot;first&quot;: &quot;http://localhost:7415/api/v1/space-missions?page=1&quot;,
+            &quot;last&quot;: &quot;http://localhost:7415/api/v1/space-missions?page=5&quot;,
+            &quot;prev&quot;: null,
+            &quot;next&quot;: &quot;http://localhost:7415/api/v1/space-missions?page=2&quot;
+        },
+        &quot;meta&quot;: {
+            &quot;current_page&quot;: 1,
+            &quot;from&quot;: 1,
+            &quot;last_page&quot;: 5,
+            &quot;links&quot;: [
+                {
+                    &quot;url&quot;: null,
+                    &quot;label&quot;: &quot;&amp;laquo; Anterior&quot;,
+                    &quot;active&quot;: false
+                },
+                {
+                    &quot;url&quot;: &quot;http://localhost:7415/api/v1/space-missions?page=1&quot;,
+                    &quot;label&quot;: &quot;1&quot;,
+                    &quot;active&quot;: true
+                },
+                {
+                    &quot;url&quot;: &quot;http://localhost:7415/api/v1/space-missions?page=2&quot;,
+                    &quot;label&quot;: &quot;2&quot;,
+                    &quot;active&quot;: false
+                },
+                {
+                    &quot;url&quot;: &quot;http://localhost:7415/api/v1/space-missions?page=3&quot;,
+                    &quot;label&quot;: &quot;3&quot;,
+                    &quot;active&quot;: false
+                },
+                {
+                    &quot;url&quot;: &quot;http://localhost:7415/api/v1/space-missions?page=4&quot;,
+                    &quot;label&quot;: &quot;4&quot;,
+                    &quot;active&quot;: false
+                },
+                {
+                    &quot;url&quot;: &quot;http://localhost:7415/api/v1/space-missions?page=5&quot;,
+                    &quot;label&quot;: &quot;5&quot;,
+                    &quot;active&quot;: false
+                },
+                {
+                    &quot;url&quot;: &quot;http://localhost:7415/api/v1/space-missions?page=2&quot;,
+                    &quot;label&quot;: &quot;Siguiente &amp;raquo;&quot;,
+                    &quot;active&quot;: false
+                }
+            ],
+            &quot;path&quot;: &quot;http://localhost:7415/api/v1/space-missions&quot;,
+            &quot;per_page&quot;: 15,
+            &quot;to&quot;: 15,
+            &quot;total&quot;: 69
+        }
+    },
+    &quot;timestamp&quot;: &quot;2025-07-11T01:34:20+00:00&quot;
 }</code>
  </pre>
     </span>
@@ -223,6 +556,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-space-missions"
+               value="Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
@@ -261,6 +605,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:7415/api/v1/space-missions" \
+    --header "Authorization: Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -269,10 +614,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"description\": \"Animi quos velit et fugiat.\",
     \"launch_date\": \"2051-08-04\",
     \"duration_days\": 22,
-    \"status\": \"completed\",
+    \"status\": \"failed\",
     \"agency\": \"g\",
     \"crew_size\": 16,
-    \"mission_type\": \"exploration\",
+    \"mission_type\": \"colonization\",
     \"budget_millions\": 17
 }"
 </code></pre></div>
@@ -284,6 +629,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
+    "Authorization": "Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -294,10 +640,10 @@ let body = {
     "description": "Animi quos velit et fugiat.",
     "launch_date": "2051-08-04",
     "duration_days": 22,
-    "status": "completed",
+    "status": "failed",
     "agency": "g",
     "crew_size": 16,
-    "mission_type": "exploration",
+    "mission_type": "colonization",
     "budget_millions": 17
 };
 
@@ -358,6 +704,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <b><code>api/v1/space-missions</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-space-missions"
+               value="Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6</code></p>
+            </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
@@ -442,10 +799,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="POSTapi-v1-space-missions"
-               value="completed"
+               value="failed"
                data-component="body">
     <br>
-<p>Example: <code>completed</code></p>
+<p>Example: <code>failed</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>planned</code></li> <li><code>active</code></li> <li><code>completed</code></li> <li><code>failed</code></li> <li><code>cancelled</code></li></ul>
         </div>
@@ -477,10 +834,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="mission_type"                data-endpoint="POSTapi-v1-space-missions"
-               value="exploration"
+               value="colonization"
                data-component="body">
     <br>
-<p>Example: <code>exploration</code></p>
+<p>Example: <code>colonization</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>exploration</code></li> <li><code>research</code></li> <li><code>colonization</code></li> <li><code>mining</code></li> <li><code>rescue</code></li></ul>
         </div>
@@ -512,6 +869,7 @@ Must be one of:
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost:7415/api/v1/space-missions/1" \
+    --header "Authorization: Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -522,6 +880,7 @@ Must be one of:
 );
 
 const headers = {
+    "Authorization": "Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -535,7 +894,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-space-missions--id-">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -547,7 +906,27 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;success&quot;: true,
+    &quot;message&quot;: &quot;Request processed successfully&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Pioneer 20&quot;,
+        &quot;destination&quot;: &quot;Asteroid Belt&quot;,
+        &quot;description&quot;: &quot;Similique non sunt sit et id a enim. Quaerat aliquid in architecto nam. Ad quisquam delectus veritatis omnis. Aut voluptas porro non accusantium velit. Nihil earum hic ipsa illum.&quot;,
+        &quot;launch_date&quot;: &quot;2026-09-16&quot;,
+        &quot;duration_days&quot;: 1523,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;agency&quot;: &quot;JAXA&quot;,
+        &quot;crew_size&quot;: 11,
+        &quot;mission_type&quot;: &quot;exploration&quot;,
+        &quot;budget_millions&quot;: &quot;13,346.28&quot;,
+        &quot;budget_millions_formatted&quot;: &quot;$13,346.3M&quot;,
+        &quot;is_active&quot;: false,
+        &quot;is_completed&quot;: true,
+        &quot;created_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-07-01T18:10:25.000000Z&quot;
+    },
+    &quot;timestamp&quot;: &quot;2025-07-11T01:34:20+00:00&quot;
 }</code>
  </pre>
     </span>
@@ -599,6 +978,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-space-missions--id-"
+               value="Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
@@ -649,6 +1039,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost:7415/api/v1/space-missions/1" \
+    --header "Authorization: Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -657,7 +1048,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"description\": \"Animi quos velit et fugiat.\",
     \"launch_date\": \"2051-08-04\",
     \"duration_days\": 22,
-    \"status\": \"cancelled\",
+    \"status\": \"active\",
     \"agency\": \"g\",
     \"crew_size\": 16,
     \"mission_type\": \"rescue\",
@@ -672,6 +1063,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
+    "Authorization": "Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -682,7 +1074,7 @@ let body = {
     "description": "Animi quos velit et fugiat.",
     "launch_date": "2051-08-04",
     "duration_days": 22,
-    "status": "cancelled",
+    "status": "active",
     "agency": "g",
     "crew_size": 16,
     "mission_type": "rescue",
@@ -750,6 +1142,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <b><code>api/v1/space-missions/{id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-space-missions--id-"
+               value="Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6</code></p>
+            </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
@@ -846,10 +1249,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-v1-space-missions--id-"
-               value="cancelled"
+               value="active"
                data-component="body">
     <br>
-<p>Example: <code>cancelled</code></p>
+<p>Example: <code>active</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>planned</code></li> <li><code>active</code></li> <li><code>completed</code></li> <li><code>failed</code></li> <li><code>cancelled</code></li></ul>
         </div>
@@ -916,6 +1319,7 @@ Must be one of:
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
     "http://localhost:7415/api/v1/space-missions/1" \
+    --header "Authorization: Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -926,6 +1330,7 @@ Must be one of:
 );
 
 const headers = {
+    "Authorization": "Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -986,6 +1391,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <b><code>api/v1/space-missions/{id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-space-missions--id-"
+               value="Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer 1|YNEDdgVNvpvTxqLufx8q2lpGtipMOS7gUlXYf0fU36c2aba6</code></p>
+            </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
