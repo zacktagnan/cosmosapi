@@ -12,6 +12,10 @@ Route::middleware([ApiResponseMiddleware::class])->group(function () {
     // Protected routes
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('logout', [AuthController::class, 'logout']);
+
+        Route::prefix('space-missions')->as('space-missions.')->group(function () {
+            Route::get('index-with-pipeline', [SpaceMissionController::class, 'indexWithPipeline'])->name('indexWithPipeline');
+        });
         Route::apiResource('space-missions', SpaceMissionController::class);
     });
 });

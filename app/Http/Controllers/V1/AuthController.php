@@ -17,6 +17,16 @@ class AuthController extends Controller
 {
     #[BodyParam(name: 'email', example: 'scribe@example.com')]
     #[BodyParam(name: 'password', example: 'password')]
+    /**
+     * Login
+     *
+     * Iniciar sesión
+     *
+     * @unauthenticated
+     *
+     * @param LoginRequest $request
+     * @return JsonResponse
+     */
     public function login(LoginRequest $request): JsonResponse
     {
         $data = $request->validated();

@@ -35,6 +35,15 @@ class SpaceMissionController extends Controller
 
     //     return SpaceMissionResource::collection($missions);
     // }
+    /**
+     * Listado paginado/filtrado simple
+     *
+     * Lista completa de SpaceMission disponibles.
+     *
+     * @return AnonymousResourceCollection
+     *
+     * @deprecated Este ENDPOINT dejará de ser útil en favor del que usa Pipeline.
+     */
     public function index(): AnonymousResourceCollection
     {
         $spaceMissions = SpaceMission::filtered()
@@ -43,6 +52,13 @@ class SpaceMissionController extends Controller
         return SpaceMissionResource::collection($spaceMissions);
     }
 
+    /**
+     * Listado paginado/filtrado con Pipeline
+     *
+     * Lista completa de SpaceMission disponibles.
+     *
+     * @return AnonymousResourceCollection
+     */
     public function indexWithPipeline(): AnonymousResourceCollection
     {
         $missions = SpaceMission::filteredWithPipeline()
@@ -52,7 +68,12 @@ class SpaceMissionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Crear
+     *
+     * Almacenar un nuevo registro en la base de datos.
+     *
+     * @param StoreSpaceMissionRequest $request
+     * @return SpaceMissionResource
      */
     public function store(StoreSpaceMissionRequest $request): SpaceMissionResource
     {
@@ -62,7 +83,12 @@ class SpaceMissionController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Detalle
+     *
+     * Vista detallada de todas las claves del registro.
+     *
+     * @param SpaceMission $spaceMission
+     * @return SpaceMissionResource
      */
     public function show(SpaceMission $spaceMission): SpaceMissionResource
     {
@@ -70,7 +96,13 @@ class SpaceMissionController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualizar
+     *
+     * Modificar en la base de datos el registro seleccionado.
+     *
+     * @param UpdateSpaceMissionRequest $request
+     * @param SpaceMission $spaceMission
+     * @return SpaceMissionResource
      */
     public function update(UpdateSpaceMissionRequest $request, SpaceMission $spaceMission): SpaceMissionResource
     {
@@ -80,7 +112,12 @@ class SpaceMissionController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Eliminar
+     *
+     * Eliminar de la base de datos el registro especificado.
+     *
+     * @param SpaceMission $spaceMission
+     * @return JsonResponse
      */
     public function destroy(SpaceMission $spaceMission): JsonResponse
     {
