@@ -1,5 +1,6 @@
 <?php
 
+// use App\Http\Middleware\CustomRestrictedDocsAccess;
 use Dedoc\Scramble\Http\Middleware\RestrictedDocsAccess;
 
 return [
@@ -119,6 +120,7 @@ return [
     'middleware' => [
         'web',
         RestrictedDocsAccess::class,
+        // CustomRestrictedDocsAccess::class,
     ],
 
     // 'docs_token' => env('SCRAMBLE_DOCS_TOKEN', null),
