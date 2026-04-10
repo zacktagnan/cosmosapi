@@ -74,13 +74,16 @@ La API est√° disponible bajo `http://localhost:80/api/v1` y utiliza autenticaci√
 
 - `POST /api/v1/login`
 - Payload ejemplo:
+
   ```json
   {
     "email": "user@example.com",
     "password": "password"
   }
   ```
+
 - Respuesta esperada:
+
   ```json
   {
     "token": "<token de acceso>",
