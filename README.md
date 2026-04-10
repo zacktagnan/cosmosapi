@@ -1,61 +1,160 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# CosmosAPI API REST
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+API REST construida con Laravel 12, centrada en el manejo de misiones espaciales (`SpaceMission`) con versión de API, autenticación y documentación automática.
 
-## About Laravel
+## Resumen del proyecto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Laravel 12 con estructura limpia y modular.
+- Laravel Sanctum para autenticación API y gestión de tokens.
+- Endpoints versionados bajo `api/v1`.
+- CRUD completo para el modelo `SpaceMission`.
+- Validaciones robustas en create/update.
+- Respuestas JSON unificadas mediante middleware global.
+- Filtros avanzados y paginación en listados.
+- Tests automatizados por caso de uso.
+- Documentación automática con Scribe y Scramble.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Características principales
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Modelo `SpaceMission` con migración, factory y seeder.
+- API Resources (`SpaceMissionResource`) para respuesta de datos.
+- Query Builder y filtros por campos como `destination`, `status`, `mission_type` y `budget_millions`.
+- Patrones de diseño:
+  - Actions para `create`, `update` y `delete`.
+  - Query builder/filtros para mantener controladores limpios.
+  - Middleware de respuesta API aplicado globalmente.
+- Auth token con Sanctum para proteger los endpoints.
 
-## Learning Laravel
+## Estructura destacada
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- `app/Models/SpaceMission.php`
+- `app/Http/Controllers/V1/SpaceMissionController.php`
+- `app/Http/Middleware/V1/ApiResponseMiddleware.php`
+- `app/Http/Resources/V1/SpaceMissionResource.php`
+- `app/Actions/V1/SpaceMission/`
+- `app/Builders/SpaceMissionQueryBuilder.php`
+- `app/Filters/`
+- `routes/api.php`
+- `routes/api/v1.php`
+- `config/scribe.php`
+- `config/scramble.php`
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Entorno local
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+El proyecto está preparado para ejecutarse en Docker con Docker Compose y Sail.
 
-## Laravel Sponsors
+Servicios relevantes:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- `laravel.test` – servidor web PHP/Apache con la aplicación Laravel.
+- `mysql` – base de datos MySQL.
+- `phpmyadmin` – interfaz web para gestionar la base de datos.
+- `mailpit` – servidor SMTP de pruebas.
 
-### Premium Partners
+## Notas de configuración de phpMyAdmin
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- El contenedor MySQL carga scripts de inicialización desde `./docker/mysql/`.
+- `docker/mysql/create-phpmyadmin-database.sh` crea la base de datos `phpmyadmin` y aplica el esquema de phpMyAdmin.
+- `docker/mysql/create-phpmyadmin-tables.sql` define las tablas internas de phpMyAdmin (`pma__*`).
+- El servicio `phpmyadmin` solo necesita conectar con MySQL (`PMA_HOST`, `PMA_PORT`, `PMA_PMADB`).
 
-## Contributing
+## Comandos útiles
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- `sail artisan migrate:fresh --seed`
+- `sail artisan migrate`
+- `sail artisan db:seed`
+- `sail test`
+- `sail artisan route:list`
+- `sail artisan scribe:generate`
 
-## Code of Conduct
+## Ejemplos de endpoints
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+La API está disponible bajo `http://localhost:80/api/v1` y utiliza autenticación con tokens Bearer de Laravel Sanctum.
 
-## Security Vulnerabilities
+### Autenticación
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- `POST /api/v1/login`
+- Payload ejemplo:
+  ```json
+  {
+    "email": "user@example.com",
+    "password": "password"
+  }
+  ```
+- Respuesta esperada:
+  ```json
+  {
+    "token": "<token de acceso>",
+    "token_type": "Bearer",
+    "user": {
+      "id": 1,
+      "name": "Example User",
+      "email": "user@example.com"
+    }
+  }
+  ```
 
-## License
+### Usar el token Bearer
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Para todas las rutas protegidas, envía la cabecera:
+
+- `Authorization: Bearer <token>`
+
+Ejemplo con `curl`:
+
+```bash
+curl -H "Authorization: Bearer <token>" \
+  -H "Accept: application/json" \
+  http://localhost:80/api/v1/space-missions
+```
+
+### Endpoints públicos
+
+- `POST /api/v1/login` — iniciar sesión y obtener token.
+
+### Endpoints protegidos
+
+- `POST /api/v1/logout` — cerrar sesión y revocar el token.
+- `GET /api/v1/space-missions` — listado paginado de misiones.
+- `GET /api/v1/space-missions/{space_mission}` — detalle de una misión.
+- `POST /api/v1/space-missions` — crear nueva misión.
+- `PUT /api/v1/space-missions/{space_mission}` — actualizar misión.
+- `PATCH /api/v1/space-missions/{space_mission}` — actualizar parcialmente misión.
+- `DELETE /api/v1/space-missions/{space_mission}` — eliminar misión.
+- `GET /api/v1/space-missions/index-with-pipeline` — listado con pipeline de filtros adicional.
+
+### Payload de ejemplo para crear una misión
+
+```json
+{
+  "name": "Mars Exploration",
+  "destination": "Mars",
+  "mission_type": "Exploration",
+  "status": "planned",
+  "budget_millions": 250
+}
+```
+
+### Payload de ejemplo para actualizar una misión
+
+```json
+{
+  "status": "in_progress",
+  "budget_millions": 300
+}
+```
+
+## Documentación de la API
+
+- Scribe para generar documentación estática y configurada con autenticación Sanctum.
+- Scramble para documentación automática en tiempo real.
+- Ambas opciones ayudan a documentar los endpoints de `SpaceMission` y otros recursos de la API.
+
+## Objetivo del proyecto
+
+Construir una API REST moderna y bien estructurada con Laravel 12, enfocado en:
+
+- buen diseño de código,
+- pruebas automatizadas,
+- versionado de API,
+- control de autenticación,
+- generación automática de documentación.
